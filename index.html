@@ -3,198 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aliganj Jan-Samadhan</title>
 
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;font-family:Arial,sans-serif;
- background:#f3f7f4;color:#222
+*{
+  box-sizing:border-box;
 }
-.header{
- background:#116530;color:white;text-align:center;
- padding:25px 15px
-}
-.header h1{margin:0;font-size:26px}
-.header p{margin:8px 0 0}
 
-.container{max-width:520px;margin:auto;padding:16px}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f7f4;
+  color:#222;
+}
+
+.header{
+  background:#116530;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+.header h1{
+  margin:0;
+  font-size:26px;
+}
+
+.header p{
+  margin:8px 0 0;
+  font-size:16px;
+}
+
+.container{
+  max-width:520px;
+  margin:auto;
+  padding:16px;
+}
 
 .card{
- background:white;padding:20px;border-radius:18px;
- box-shadow:0 4px 18px #0002
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 4px 18px #0002;
 }
 
 .pradhan{
- text-align:center
+  text-align:center;
 }
 
 .pradhan img{
- width:190px;height:190px;
- object-fit:contain;
- border-radius:50%;
- margin:10px auto;
- display:block
+  width:190px;
+  height:190px;
+  object-fit:contain;
+  border-radius:50%;
+  margin:10px auto;
+  display:block;
 }
 
 .pradhan h2{
- margin:5px 0;color:#116530
+  margin:5px 0;
+  color:#116530;
+}
+
+.pradhan p{
+  margin:5px 0 18px;
+  color:#666;
 }
 
 label{
- display:block;font-weight:bold;
- margin:17px 0 7px
+  display:block;
+  font-weight:bold;
+  margin:17px 0 7px;
 }
 
 input,select,textarea{
- width:100%;padding:13px;
- border:1px solid #ccc;border-radius:10px;
- font-size:16px
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size:16px;
+  outline:none;
 }
 
-textarea{height:120px}
-
-.mohalla{
- display:flex;gap:8px
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#116530;
 }
 
-.Mohalla input{flex:1}
-
-.mohalla button{
- border:0;background:#2563eb;
- color:white;border-radius:10px;
- padding:0 12px
+textarea{
+  height:120px;
+  resize:vertical;
 }
 
-.submit{
- width:100%;padding:15px;margin-top:22px;
- border:0;border-radius:11px;
- background:#15803d;color:white;
- font-size:18px;font-weight:bold
+.photo-box{
+  border:2px dashed #bbb;
+  border-radius:12px;
+  padding:15px;
+  text-align:center;
+  background:#fafafa;
+}
+
+.photo-box input{
+  border:0;
+  padding:5px;
+}
+
+.preview{
+  width:100%;
+  max-height:250px;
+  object-fit:contain;
+  margin-top:12px;
+  border-radius:10px;
+  display:none;
+}
+
+.submit-btn{
+  width:100%;
+  margin-top:22px;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:#116530;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.submit-btn:disabled{
+  background:#999;
+}
+
+.message{
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  display:none;
+  font-weight:bold;
 }
 
 .success{
- display:none;background:#dcfce7;
- color:#166534;padding:18px;
- margin-top:18px;border-radius:12px;
- text-align:center
+  background:#dcfce7;
+  color:#166534;
 }
 
-#formPage{display:none}
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+}
 
-.photo-preview{
- width:100%;max-height:220px;
- object-fit:contain;margin-top:10px;
- display:none;border-radius:10px
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:13px;
+  padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME PAGE -->
-<div id="welcomePage">
 <div class="header">
-<h1>🏡 ALIGANJ JAN-SAMADHAN</h1>
-<p>गाँव की समस्या, हमारा समाधान</p>
+  <h1>ALIGANJ JAN-SAMADHAN</h1>
+  <p>ग्राम की समस्या दर्ज करें</p>
 </div>
 
 <div class="container">
-<div class="card pradhan">
 
-<img src="IMG_0515(3).png" alt="ग्राम प्रधान">
+  <div class="card">
 
-<h2>ग्राम प्रधान</h2>
-<h2>शाकिर ख़ान</h2>
+    <div class="pradhan">
 
-<p>
-आपकी समस्या हमारी प्राथमिकता है।<br>
-कृपया अपनी समस्या दर्ज करें।
-</p>
+      <img src="IMG_0515(3).png" alt="ग्राम प्रधान">
 
-<button class="submit" onclick="openForm()">
-📝 शिकायत दर्ज करें
-</button>
+      <h2>ग्राम प्रधान शाकिर ख़ान</h2>
+
+      <p>आपकी समस्या का समाधान करने हेतु शिकायत दर्ज करें</p>
+
+    </div>
+
+    <form id="complaintForm">
+
+      <label for="name">नाम</label>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="अपना नाम लिखें"
+        required
+      >
+
+      <label for="mobile">मोबाइल नंबर</label>
+
+      <input
+        type="tel"
+        id="mobile"
+        placeholder="10 अंकों का मोबाइल नंबर"
+        maxlength="10"
+        pattern="[0-9]{10}"
+        required
+      >
+
+      <label for="category">शिकायत की श्रेणी</label>
+
+      <select id="category" required>
+
+        <option value="">श्रेणी चुनें</option>
+
+        <option value="सड़क">सड़क</option>
+
+        <option value="नाली">नाली</option>
+
+        <option value="सफाई">सफाई</option>
+
+        <option value="पानी">पानी</option>
+
+        <option value="बिजली">बिजली</option>
+
+        <option value="स्ट्रीट लाइट">स्ट्रीट लाइट</option>
+
+        <option value="कूड़ा">कूड़ा</option>
+
+        <option value="सरकारी योजना">सरकारी योजना</option>
+
+        <option value="अन्य">अन्य</option>
+
+      </select>
+
+      <label for="location">मोहल्ला</label>
+
+      <input
+        type="text"
+        id="location"
+        placeholder="अपने मोहल्ले का नाम लिखें"
+        required
+      >
+
+      <label for="photo">शिकायत की फोटो</label>
+
+      <div class="photo-box">
+
+        <input
+          type="file"
+          id="photo"
+          accept="image/*"
+        >
+
+        <img
+          id="preview"
+          class="preview"
+          alt="Photo Preview"
+        >
+
+      </div>
+
+      <label for="complaint">शिकायत / समस्या</label>
+
+      <textarea
+        id="complaint"
+        placeholder="अपनी समस्या विस्तार से लिखें..."
+        required
+      ></textarea>
+
+      <button
+        type="submit"
+        class="submit-btn"
+        id="submitBtn"
+      >
+        शिकायत दर्ज करें
+      </button>
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+    </form>
+
+  </div>
 
 </div>
-</div>
-</div>
 
-
-<!-- COMPLAINT FORM -->
-<div id="formPage">
-
-<div class="header">
-<h1>📝 शिकायत दर्ज करें</h1>
-<p>Aliganj Jan-Samadhan</p>
-</div>
-
-<div class="container">
-<div class="card">
-
-<form id="complaintForm">
-
-<label>👤 आपका नाम</label>
-<input id="name" required placeholder="अपना पूरा नाम">
-
-<label>📞 मोबाइल नंबर</label>
-<input id="mobile" type="tel"
-maxlength="10"
-required placeholder="10 अंकों का मोबाइल नंबर">
-
-<label>🗂️ समस्या की श्रेणी</label>
-<select id="category" required>
-<option value="">श्रेणी चुनें</option>
-<option>सफाई</option>
-<option>नाली</option>
-<option>सड़क</option>
-<option>पानी</option>
-<option>स्ट्रीट लाइट</option>
-<option>कूड़ा</option>
-<option>अन्य</option>
-</select>
-
-<label>📍 समस्या की जगह</label>
-
-<div class="location">
-<input id="location" readonly
-placeholder="Mohalla lene ke liye button dabaye"
-
-<button type="button" onclick="getLocation()">
-📍 mohalla
-</button>
-</div>
-
-<label>📸 समस्या की फोटो</label>
-
-<input id="photo"
-type="file"
-accept="image/*"
-capture="environment">
-
-<img id="preview" class="photo-preview">
-
-<label>📝 शिकायत / Note</label>
-
-<textarea id="complaint"
-required
-placeholder="अपनी समस्या पूरी तरह लिखें..."></textarea>
-
-<button class="submit" id="submitBtn">
-🟢 शिकायत Submit करें
-</button>
-
-</form>
-
-<div class="success" id="success">
-<h2>✅ शिकायत दर्ज हो गई!</h2>
-<p>आपकी Complaint ID:</p>
-<h2 id="complaintId"></h2>
-<p>कृपया इस ID को संभालकर रखें।</p>
-</div>
-
-</div>
-</div>
+<div class="footer">
+  Aliganj Jan-Samadhan © 2026
 </div>
 
 
@@ -204,154 +298,268 @@ const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwclEzwe8FwrZH3xWNuaanjGdiQQUTQAmac_r9F6OxaCBUEk7s4eLw9pxsn_gN7X-rx/exec";
 
 
-function openForm(){
- document.getElementById("welcomePage").style.display="none";
- document.getElementById("formPage").style.display="block";
-}
+const form = document.getElementById("complaintForm");
+
+const photoInput = document.getElementById("photo");
+
+const preview = document.getElementById("preview");
+
+const submitBtn = document.getElementById("submitBtn");
+
+const message = document.getElementById("message");
 
 
-function getLocation(){
+/* PHOTO PREVIEW */
 
- if(!navigator.geolocation){
-   alert("इस फोन में Location उपलब्ध नहीं है।");
-   return;
- }
+photoInput.addEventListener("change", function(){
 
- navigator.geolocation.getCurrentPosition(
- function(position){
+  const file = this.files[0];
 
-   const lat=position.coords.latitude;
-   const lon=position.coords.longitude;
+  if(file){
 
-   document.getElementById("location").value =
-   lat.toFixed(6)+", "+lon.toFixed(6);
- },
- function(){
-   alert("Location की permission Allow करें।");
- }
- );
-}
+    const reader = new FileReader();
 
+    reader.onload = function(e){
 
-document.getElementById("photo").addEventListener("change",function(){
+      preview.src = e.target.result;
 
- const file=this.files[0];
+      preview.style.display = "block";
 
- if(!file)return;
+    };
 
- const preview=document.getElementById("preview");
+    reader.readAsDataURL(file);
 
- preview.src=URL.createObjectURL(file);
- preview.style.display="block";
-});
+  }else{
 
+    preview.style.display = "none";
 
-document.getElementById("complaintForm")
-.addEventListener("submit",async function(e){
-
- e.preventDefault();
-
- const name=document.getElementById("name").value.trim();
- const mobile=document.getElementById("mobile").value.trim();
- const category=document.getElementById("category").value;
- const location=document.getElementById("location").value;
- const complaint=document.getElementById("complaint").value.trim();
- const photo=document.getElementById("photo").files[0];
-
- if(!/^[0-9]{10}$/.test(mobile)){
-   alert("सही 10 अंकों का मोबाइल नंबर डालें।");
-   return;
- }
-
- if(!location){
-   alert("पहले Location शेयर करें।");
-   return;
- }
-
- const btn=document.getElementById("submitBtn");
-
- btn.disabled=true;
- btn.innerText="⏳ शिकायत भेजी जा रही है...";
-
- let photoBase64="";
- let photoType="";
- let photoName="";
-
- if(photo){
-
-   if(photo.size > 5*1024*1024){
-     alert("Photo 5 MB से छोटी रखें।");
-     btn.disabled=false;
-     btn.innerText="🟢 शिकायत Submit करें";
-     return;
-   }
-
-   photoBase64=await fileToBase64(photo);
-   photoType=photo.type;
-   photoName=photo.name;
- }
-
- const data={
-   name:name,
-   mobile:mobile,
-   category:category,
-   location:location,
-   complaint:complaint,
-   photo:photo ? true : false,
-   photoBase64:photoBase64,
-   photoType:photoType,
-   photoName:photoName
- };
-
- try{
-
-   await fetch(SCRIPT_URL,{
-     method:"POST",
-     mode:"no-cors",
-     headers:{
-       "Content-Type":"text/plain;charset=utf-8"
-     },
-     body:JSON.stringify(data)
-   });
-
-   const id="ALJ-"+new Date().getFullYear()+"-"+Math.floor(1000+Math.random()*9000);
-
-   document.getElementById("complaintId").innerText=id;
-
-   document.getElementById("success").style.display="block";
-
-   document.getElementById("complaintForm").reset();
-
-   document.getElementById("preview").style.display="none";
-
-   btn.disabled=false;
-   btn.innerText="🟢 शिकायत Submit करें";
-
- }catch(error){
-
-   alert("Complaint भेजने में समस्या हुई। दोबारा कोशिश करें।");
-
-   btn.disabled=false;
-   btn.innerText="🟢 शिकायत Submit करें";
- }
+  }
 
 });
 
+
+/* FORM SUBMIT */
+
+form.addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+
+  submitBtn.disabled = true;
+
+  submitBtn.innerText = "शिकायत भेजी जा रही है...";
+
+
+  message.style.display = "none";
+
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const mobile =
+    document.getElementById("mobile").value.trim();
+
+  const category =
+    document.getElementById("category").value;
+
+  const location =
+    document.getElementById("location").value.trim();
+
+  const complaint =
+    document.getElementById("complaint").value.trim();
+
+
+  const photoFile =
+    photoInput.files[0];
+
+
+  let photoBase64 = "";
+
+  let photoName = "";
+
+  let photoType = "";
+
+
+  /* PHOTO TO BASE64 */
+
+  if(photoFile){
+
+    photoName = photoFile.name;
+
+    photoType = photoFile.type;
+
+
+    try{
+
+      photoBase64 = await fileToBase64(photoFile);
+
+    }catch(error){
+
+      showMessage(
+        "फोटो पढ़ने में समस्या हुई।",
+        "error"
+      );
+
+      submitBtn.disabled = false;
+
+      submitBtn.innerText = "शिकायत दर्ज करें";
+
+      return;
+
+    }
+
+  }
+
+
+  /* COMPLAINT DATA */
+
+  const data = {
+
+    name:name,
+
+    mobile:mobile,
+
+    category:category,
+
+    location:location,
+
+    complaint:complaint,
+
+    photo:photoFile ? true : false,
+
+    photoBase64:photoBase64,
+
+    photoName:photoName,
+
+    photoType:photoType
+
+  };
+
+
+  /* SEND TO GOOGLE APPS SCRIPT */
+
+  try{
+
+    await fetch(
+
+      SCRIPT_URL,
+
+      {
+
+        method:"POST",
+
+        mode:"no-cors",
+
+        headers:{
+          "Content-Type":"text/plain;charset=utf-8"
+        },
+
+        body:JSON.stringify(data)
+
+      }
+
+    );
+
+
+    /* LOCAL COMPLAINT ID */
+
+    const complaintId =
+      "ALJ-" +
+      new Date().getFullYear() +
+      "-" +
+      Math.random()
+      .toString(36)
+      .substring(2,8)
+      .toUpperCase();
+
+
+    showMessage(
+
+      "✅ शिकायत सफलतापूर्वक दर्ज हो गई।<br>" +
+      "Complaint ID: " +
+      complaintId,
+
+      "success"
+
+    );
+
+
+    form.reset();
+
+    preview.style.display = "none";
+
+
+  }catch(error){
+
+    showMessage(
+
+      "❌ शिकायत भेजने में समस्या हुई। कृपया दोबारा प्रयास करें।",
+
+      "error"
+
+    );
+
+  }
+
+
+  submitBtn.disabled = false;
+
+  submitBtn.innerText = "शिकायत दर्ज करें";
+
+});
+
+
+/* FILE READER */
 
 function fileToBase64(file){
 
- return new Promise((resolve,reject)=>{
+  return new Promise(function(resolve,reject){
 
-   const reader=new FileReader();
+    const reader = new FileReader();
 
-   reader.onload=()=>{
-     resolve(reader.result.split(",")[1]);
-   };
+    reader.readAsDataURL(file);
 
-   reader.onerror=reject;
+    reader.onload = function(){
 
-   reader.readAsDataURL(file);
- });
+      const result = reader.result;
+
+      const base64 =
+        result.split(",")[1];
+
+      resolve(base64);
+
+    };
+
+    reader.onerror = function(error){
+
+      reject(error);
+
+    };
+
+  });
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(text,type){
+
+  message.innerHTML = text;
+
+  message.className =
+    "message " + type;
+
+  message.style.display = "block";
+
+  window.scrollTo({
+
+    top:document.body.scrollHeight,
+
+    behavior:"smooth"
+
+  });
+
 }
 
 </script>
